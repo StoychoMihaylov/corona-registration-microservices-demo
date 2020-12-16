@@ -11,7 +11,7 @@ Technologies:
   - Docker compose for container orchestration
   
 # The idea of the app
-Let's assume that there are thousend of people that register in the app. So we need a good architecture to have a place for scaling in the future and also we need to handle somehow the huge daily load on out services. So we want to use a messaging queue system and containerization in order to scale by multiplying instances of our most loaded services.
+Let's assume that there are thousands of people that register in the app every day. So we need a good architecture to have a place for scaling in the future and also we need to handle somehow the huge daily load on our services. So we want to use a messaging queue system and containerization in order to scale by multiplying instances of our most loaded services.
 
 # How to run corona-registration-microservices-demo app
 1. Make sure you have installed on your machine: 
@@ -29,31 +29,31 @@ Let's assume that there are thousend of people that register in the app. So we n
 
 # Architecture basic scheme
 
-                                                                    |--------------------|
-                                                                    |     ReactJS app    |
-                                                                    |--------------------|
-                                                                              |   |------------------------|
-                                                                              |                            |
-                                                                    |--------------------|                 |
-                                                                    |   WebGateway API   |                 |
-                                                                    |--------------------|         |--------------|
-                                                                              |                    |    SignalR   |
-                                                                              |                    |--------------|
-                                                                    |--------------------|                 |
-                                                                    |      RabbitMQ      |--------------   |
-                                                                    |--------------------|             |   |
-                                                                              |                        |   |
-                                                                              |                        |   |
-                                                                    |--------------------|     |--------------------|
-                                                                    |    Applicant API   |     |  Notification API  |
-                                                                    |--------------------|     |--------------------|
-                                                                              |
-                                                                              |
-                                                                      (----------------)
-                                                                      (----------------)
-                                                                      (   PostgreSQL   )
-                                                                      (----------------)
-                                                                      (----------------)
+                                                    |--------------------|
+                                                    |     ReactJS app    |
+                                                    |--------------------|
+                                                              |   |------------------------|
+                                                              |                            |
+                                                    |--------------------|                 |
+                                                    |   WebGateway API   |                 |
+                                                    |--------------------|         |--------------|
+                                                              |                    |    SignalR   |
+                                                              |                    |--------------|
+                                                    |--------------------|                 |
+                                                    |      RabbitMQ      |--------------   |
+                                                    |--------------------|             |   |
+                                                              |                        |   |
+                                                              |                        |   |
+                                                    |--------------------|     |--------------------|
+                                                    |    Applicant API   |     |  Notification API  |
+                                                    |--------------------|     |--------------------|
+                                                              |
+                                                              |
+                                                      (----------------)
+                                                      (----------------)
+                                                      (   PostgreSQL   )
+                                                      (----------------)
+                                                      (----------------)
 
 - ReactJS is the front-end part which consist just a form for registration of new victim
 - WebGateway API is used to validate the data that's coming from the client, it also can be used in the future for data aggregation between multiple services.
