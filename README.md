@@ -1,5 +1,5 @@
 # Corona registration microservices demo
-Very tematical demo app were the victims from corona can register and the data can be used for analytics
+Very tematical demo app were the victims of corona can register and the data can be used for analytics
 
 Technologies:
   - ReactJS for front-end browser access
