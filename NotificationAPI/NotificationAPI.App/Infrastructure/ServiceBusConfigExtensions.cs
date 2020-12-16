@@ -1,12 +1,11 @@
-﻿namespace ApplicantAPI.App.Infrastructure
+﻿namespace NotificationAPI.App.Infrastructure
 {
     using GreenPipes;
     using MassTransit;
     using System.Diagnostics;
-    using MassTransit.MessageData;
     using MessageExchangeContract;
-    using ApplicantAPI.Messaging.Consumers;
     using Microsoft.Extensions.DependencyInjection;
+    using NotificationAPI.App.MessageBus.Consumers;
 
     public static class ServiceBusConfigExtensions
     {
@@ -15,7 +14,8 @@
             return services.AddMassTransit(mt =>
             {
                 // Register Consumers
-                mt.AddConsumer<RegisterNewApplicantConsumer>();
+                mt.AddConsumer<EventNotificationConsumer>();
+
 
                 mt.AddBus(provider => Bus.Factory.CreateUsingRabbitMq(rmq =>
                 {
@@ -37,19 +37,17 @@
                     }
 
                     rmq.UseHealthCheck(provider);
-                    rmq.UseMessageData(new InMemoryMessageDataRepository());
 
                     // Register Exhanges
-                    rmq.Message<IRegisterNewApplicant>(m => m.SetEntityName("register-new-applicant-exchange"));
                     rmq.Message<IEventNotificationMessage>(m => m.SetEntityName("event-notification-exchange"));
 
                     // Register Endpoints
-                    rmq.ReceiveEndpoint("register-new-applicant-queue", endpoint =>
+                    rmq.ReceiveEndpoint("event-notification-queue", endpoint =>
                     {
                         endpoint.PrefetchCount = 20;
                         endpoint.UseMessageRetry(retry => retry.Interval(5, 200));
-                        endpoint.Bind<IRegisterNewApplicant>();
-                        endpoint.ConfigureConsumer<RegisterNewApplicantConsumer>(provider);
+                        endpoint.Bind<IEventNotificationMessage>();
+                        endpoint.ConfigureConsumer<EventNotificationConsumer>(provider);
                     });
                 }));
             })

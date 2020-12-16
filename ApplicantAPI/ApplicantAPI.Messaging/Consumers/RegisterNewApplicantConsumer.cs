@@ -5,14 +5,17 @@
     using MessageExchangeContract;
     using ApplicantAPI.Services.Interfaces;
     using ApplicantAPI.Models.BindingModels;
+    using ApplicantAPI.Messaging.Interfaces;
 
     public class RegisterNewApplicantConsumer : IConsumer<IRegisterNewApplicant>
     {
         private readonly IApplicantService applicantService;
+        private readonly INotificationBusService notificationBusService;
 
-        public RegisterNewApplicantConsumer(IApplicantService applicantService)
+        public RegisterNewApplicantConsumer(IApplicantService applicantService, INotificationBusService notificationBusService)
         {
             this.applicantService = applicantService;
+            this.notificationBusService = notificationBusService;
         }
 
         public async Task Consume(ConsumeContext<IRegisterNewApplicant> context)
@@ -30,6 +33,7 @@
             };
 
             await this.applicantService.CreateApplicantRegistration(newApplicant);
+            this.notificationBusService.MessageNotificationAPI_SendEventNotification($"Congrats {newApplicant.FirstName}, you are successfully registere!");
         }
     }
 }
