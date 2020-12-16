@@ -11,14 +11,13 @@ export class Registration extends Component {
           <img className="covid-logo-img" src={process.env.PUBLIC_URL + 'covid-logo.jpg'} alt="" />
         </div>
 
-        <RegistrationForm />
-
         <span>
           <h1>Covid infection registration</h1>
           <i>Powered by Tributech</i>
           <img className="tributech-logo-img" src={process.env.PUBLIC_URL + 'tributech-logo.jpg'} alt="" />
         </span>
 
+        <RegistrationForm />
       </div>
     );
   }

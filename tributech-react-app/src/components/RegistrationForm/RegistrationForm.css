@@ -1,0 +1,24 @@
+.registration-form-container {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+table {
+    margin: 0 auto;
+}
+
+input {
+    margin: 5px;
+    background-color: lightblue;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+textarea {
+    margin: 5px;
+    background-color: lightblue;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+}
