@@ -1,0 +1,77 @@
+version: '3.7'
+
+services:
+
+#REACT FRONT-END SERVICE
+
+  frontend:
+    container_name: ${FE_APP_NAME}
+    build:
+      context: ./${FE_APP_NAME}/
+      dockerfile: Dockerfile
+    volumes:
+      - ./${FE_APP_NAME}/:/app
+      - ./${FE_APP_NAME}/app/node_modules
+    ports:
+      - '3001:3000'
+    environment:
+      - NODE_ENV=NODE_ENV
+
+# RABBITMQ MESSAGE QUEUE
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    hostname: rabbitmq
+    volumes:
+      - ./rabbitmq/data:/var/lib/rabbitmq/mnesia/rabbit@my-rabbit
+      - ./rabbitmq/logs:/var/log/rabbitmq/log
+    ports:
+      - 5672:5672
+      - 15672:15672
+
+#BACK-END SERVICES
+
+  api-gateway:
+    container_name: ${APIGATEWAY_NAME}
+    build:
+      context: ./${APIGATEWAY_NAME}
+      dockerfile: Dockerfile
+    ports:
+      - '5000:80'
+
+  applicant-api:
+    container_name: ${APPLICANT_API_NAME}
+    build:
+      context: ./${APPLICANT_API_NAME}
+      dockerfile: Dockerfile
+    ports:
+        - '5001:80'
+    restart: on-failure
+    depends_on:
+      - tributech-applicant-database
+
+  notification-api:
+    container_name: ${NOTIFICATION_API_NAME}
+    build:
+      context: ./${NOTIFICATION_API_NAME}
+      dockerfile: Dockerfile
+    ports:
+      - '5002:80'
+    restart: on-failure
+
+#POSTGRESQL SERVERS AND DATABASES
+
+  tributech-applicant-database:
+    container_name: pg-applicant-srv
+    image: postgres:latest
+    restart: on-failure
+    environment:
+      - POSTGRES_USER=${PG_APPLICANT_USER}
+      - POSTGRES_PASSWORD=${PG_APPLICANT_PASSWORD}
+    ports:
+      - 5432:5432
+    volumes:
+     -  tributech-applicant-db:/var/lib/postgresql/data
+
+volumes:
+  tributech-applicant-db:
