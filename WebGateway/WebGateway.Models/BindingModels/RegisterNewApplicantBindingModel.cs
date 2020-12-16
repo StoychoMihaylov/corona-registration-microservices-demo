@@ -1,13 +1,9 @@
-﻿namespace ApplicantAPI.Data.Entities
+﻿namespace WebGateway.Models.BindingModels
 {
-    using System;
     using System.ComponentModel.DataAnnotations;
 
-    public class Applicant
+    public class RegisterNewApplicantBindingModel
     {
-        [Key]
-        public Guid Id { get; set; }
-
         [MaxLength(20)]
         public string FirstName { get; set; }
 
@@ -21,7 +17,5 @@
 
         [MaxLength(500)]
         public string Symptoms { get; set; }
-
-        public DateTime RegisteredOn { get; set; }
     }
 }

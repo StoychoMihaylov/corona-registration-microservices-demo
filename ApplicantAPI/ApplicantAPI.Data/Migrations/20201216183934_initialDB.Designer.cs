@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ApplicantAPI.Data.Migrations
 {
     [DbContext(typeof(ApplicantDbContext))]
-    [Migration("20201216110320_initialDb")]
-    partial class initialDb
+    [Migration("20201216183934_initialDB")]
+    partial class initialDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -44,7 +44,7 @@ namespace ApplicantAPI.Data.Migrations
                     b.Property<DateTime>("RegisteredOn")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<string>("Syndromes")
+                    b.Property<string>("Symptoms")
                         .HasColumnType("character varying(500)")
                         .HasMaxLength(500);
 

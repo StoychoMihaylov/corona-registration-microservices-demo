@@ -7,18 +7,19 @@ table {
     margin: 0 auto;
 }
 
-input {
+input, textarea {
     margin: 5px;
     background-color: lightblue;
     border: none;
     padding: 10px;
     border-radius: 10px;
+    width: 100%;
 }
 
-textarea {
-    margin: 5px;
-    background-color: lightblue;
-    border: none;
+.submit-bttn {
     padding: 10px;
+    border: none;
     border-radius: 10px;
+    background-color: lightblue;
+    width: 100%;
 }
