@@ -1,0 +1,25 @@
+.registration-form-container {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+table {
+    margin: 0 auto;
+}
+
+input, textarea {
+    margin: 5px;
+    background-color: lightblue;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.submit-bttn {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: lightblue;
+    width: 100%;
+}

@@ -16,10 +16,18 @@ namespace WebGateway.App
             services.AddMemoryCache();
             services.AddCorsPolicy(apiCorsPolicy);
             services.AddDependancyInjectionResolver(); // DI
+            services.AddMassTransitServiceBus(); // MassTransit
         }
 
         public void Configure(IApplicationBuilder app)
         {
+            app.UseCors(builder =>
+            {
+                builder.WithOrigins("http://localhost:3001")
+                    .AllowAnyHeader()
+                    .WithMethods("GET", "POST")
+                    .AllowCredentials();
+            });
             app.UseRouting();
             app.UseControllerEndpoints();
             app.UseCors(apiCorsPolicy);    

@@ -1,9 +1,9 @@
-﻿namespace ApplicantAPI.Data.Migrations
-{
-    using System;
-    using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
-    public partial class initialDb : Migration
+namespace ApplicantAPI.Data.Migrations
+{
+    public partial class initialDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,7 +16,7 @@
                     LastName = table.Column<string>(maxLength: 20, nullable: true),
                     Email = table.Column<string>(nullable: true),
                     Age = table.Column<int>(nullable: false),
-                    Syndromes = table.Column<string>(maxLength: 500, nullable: true),
+                    Symptoms = table.Column<string>(maxLength: 500, nullable: true),
                     RegisteredOn = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>

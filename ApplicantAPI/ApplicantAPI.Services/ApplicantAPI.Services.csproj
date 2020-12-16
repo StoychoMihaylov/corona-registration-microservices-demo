@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ApplicantAPI.Data\ApplicantAPI.Data.csproj" />
+    <ProjectReference Include="..\ApplicantAPI.Models\ApplicantAPI.Models.csproj" />
   </ItemGroup>
 
 </Project>
