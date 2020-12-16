@@ -1,6 +1,6 @@
-﻿namespace MessageExchangeContract
+﻿namespace ApplicantAPI.Models.BindingModels
 {
-    public interface IRegisterNewApplicant
+    public class RegisterNewApplicantBindingModel
     {
         public string FirstName { get; set; }
 

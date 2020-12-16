@@ -3,7 +3,7 @@
     using System;
     using MassTransit;
     using System.Threading.Tasks;
-    using WebGateway.Messaging.Messages;
+    using MessageExchangeContract;
     using WebGateway.Models.BindingModels;
     using WebGateway.Messaging.Interfaces;
 

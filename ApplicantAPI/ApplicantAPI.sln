@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicantAPI.Models", "Appl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicantAPI.Services", "ApplicantAPI.Services\ApplicantAPI.Services.csproj", "{68AD7AE3-6004-401F-90F4-8A9BBEC8BF4F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicantAPI.Messaging", "ApplicantAPI.Messaging\ApplicantAPI.Messaging.csproj", "{A5C5D1B0-89EE-4470-A99D-803E8E7778C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{68AD7AE3-6004-401F-90F4-8A9BBEC8BF4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68AD7AE3-6004-401F-90F4-8A9BBEC8BF4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68AD7AE3-6004-401F-90F4-8A9BBEC8BF4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5C5D1B0-89EE-4470-A99D-803E8E7778C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5C5D1B0-89EE-4470-A99D-803E8E7778C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5C5D1B0-89EE-4470-A99D-803E8E7778C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5C5D1B0-89EE-4470-A99D-803E8E7778C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

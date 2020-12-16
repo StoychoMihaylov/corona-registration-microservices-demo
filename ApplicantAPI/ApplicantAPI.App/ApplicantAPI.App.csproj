@@ -7,6 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MassTransit" Version="7.0.4" />
+    <PackageReference Include="MassTransit.AspNetCore" Version="7.0.4" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="7.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.1">
       <PrivateAssets>all</PrivateAssets>
@@ -19,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ApplicantAPI.Data\ApplicantAPI.Data.csproj" />
+    <ProjectReference Include="..\ApplicantAPI.Messaging\ApplicantAPI.Messaging.csproj" />
   </ItemGroup>
 
 </Project>
