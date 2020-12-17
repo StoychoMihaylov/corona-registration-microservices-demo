@@ -56,11 +56,12 @@ Let's assume that there are thousands of people that register in the app every d
                                        (----------------)
                                        (----------------)
 
-- ReactJS is the front-end part which consist just a form for registration of new victim
+- ReactJS is the front-end part which consists just a registration form for a new COVID19 victim.
 - WebGateway API is used to validate the data that's coming from the client, it also can be used in the future for data aggregation between multiple services.
-Currently is used to validate the data and return indication to the user that the data is processing.
+Currently it's used to validate the data and return indication to the user that the data is processing.
 - RabbitMQ is the messaing system that transfers the data from WebGateway to the Applicant API and Transfering notification messages from Applicant API
 to Notificaton API
 - Applicant API is a service that processing data related to corona victims that register in the app and on success it send message to the RabbitMQ with notification
 that needs to be processed from Notification API
-- Notification API receives notification from RabbitMQ and pushes them to React JS Client through SignalR real-time communication.
+- Notification API receives notification from RabbitMQ and pushes them to the React JS Client through SignalR real-time communication.
+- PostgreSQL is our Database service where the data for all victims is stored.
