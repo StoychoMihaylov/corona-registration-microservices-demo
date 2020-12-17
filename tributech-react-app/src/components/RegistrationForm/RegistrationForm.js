@@ -49,6 +49,18 @@ class RegistrationForm extends React.PureComponent {
                     NotificationManager.info('Processing your data...', '', 4000)
                 }
             })
+
+        this.resetTheForm()
+    }
+
+    resetTheForm() {
+        this.setState({
+            firstName: "",
+            lastName: "",
+            email: "",
+            age: 0,
+            symptoms: ""
+        })
     }
 
     render () {
