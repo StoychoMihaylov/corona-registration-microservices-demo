@@ -4,7 +4,9 @@
     using ApplicantAPI.Data.Interfaces;
     using ApplicantAPI.Services.Services;
     using ApplicantAPI.Services.Interfaces;
+    using ApplicantAPI.Messaging.Interfaces;
     using Microsoft.Extensions.DependencyInjection;
+    using ApplicantAPI.Messaging.MessagingServices;
 
     public static class DependancyInjectionExtensions
     {
@@ -12,6 +14,7 @@
         {
             services.AddTransient<IApplicantService, ApplicantService>();
             services.AddTransient<IApplicantDbContext, ApplicantDbContext>();
+            services.AddTransient<INotificationBusService, NotificationBusService>();
 
             return services;
         }

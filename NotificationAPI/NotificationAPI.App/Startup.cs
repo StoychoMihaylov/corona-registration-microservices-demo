@@ -5,7 +5,6 @@ namespace NotificationAPI.App
     using Microsoft.Extensions.Hosting;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
-    using NotificationAPI.App.Middlewares;
     using NotificationAPI.App.Infrastructure;
     using NotificationAPI.App.Hubs.Interfaces;
     using Microsoft.Extensions.DependencyInjection;
@@ -15,6 +14,7 @@ namespace NotificationAPI.App
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
             services.AddSignalR(s =>
                s.EnableDetailedErrors = true
             );
@@ -28,6 +28,14 @@ namespace NotificationAPI.App
         [Obsolete]
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseCors(builder =>
+            {
+                builder.WithOrigins("http://localhost:3001")
+                    .AllowAnyHeader()
+                    .WithMethods("GET", "POST")
+                    .AllowCredentials();
+            });
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -43,7 +51,6 @@ namespace NotificationAPI.App
                 });
             });
 
-            app.UseCorsMiddleware();
             app.UseSignalR(routes => routes.MapHub<NotificationHub>("/hubs/web-event-notification")); // Obsolete
         }
     }
