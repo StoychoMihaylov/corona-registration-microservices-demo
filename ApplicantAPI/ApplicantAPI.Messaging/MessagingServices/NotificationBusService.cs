@@ -19,7 +19,7 @@
             var endpoint = await this.bus.GetSendEndpoint(new Uri("queue:event-notification-queue"));
             await endpoint.Send<IEventNotificationMessage>(new
             {
-                MessageType = MessageType.Success,
+                NotificationType = (int)MessageType.Success,
                 Message = message
             });
         }

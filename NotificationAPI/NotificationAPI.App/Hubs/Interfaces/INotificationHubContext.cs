@@ -2,7 +2,7 @@
 {
     using System.Threading.Tasks;
 
-    public interface INotificationHub
+    public interface INotificationHubContext
     {
         Task PushSuccessfulEventNotification(string message);
     }

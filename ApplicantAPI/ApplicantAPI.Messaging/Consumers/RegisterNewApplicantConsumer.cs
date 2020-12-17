@@ -33,7 +33,7 @@
             };
 
             await this.applicantService.CreateApplicantRegistration(newApplicant);
-            this.notificationBusService.MessageNotificationAPI_SendEventNotification($"Congrats {newApplicant.FirstName}, you are successfully registere!");
+            this.notificationBusService.MessageNotificationAPI_SendEventNotification($"Congrats {newApplicant.FirstName}, you are successfully registered!");
         }
     }
 }

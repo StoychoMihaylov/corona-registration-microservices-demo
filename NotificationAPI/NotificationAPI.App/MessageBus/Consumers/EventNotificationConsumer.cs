@@ -7,9 +7,9 @@
 
     public class EventNotificationConsumer : IConsumer<IEventNotificationMessage>
     {
-        private readonly INotificationHub notificationHub;
+        private readonly INotificationHubContext notificationHub;
 
-        public EventNotificationConsumer(INotificationHub notificationHub)
+        public EventNotificationConsumer(INotificationHubContext notificationHub)
         {
             this.notificationHub = notificationHub;
         }
@@ -17,8 +17,6 @@
         public async Task Consume(ConsumeContext<IEventNotificationMessage> context)
         {
             var message = context.Message;
-
-            System.Console.WriteLine("NOTIFICATIONNNNNNN HERE!!!!!");
 
             if (message.NotificationType == (int)MessageType.Info)
             {

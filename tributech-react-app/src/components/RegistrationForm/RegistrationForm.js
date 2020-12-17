@@ -45,7 +45,6 @@ class RegistrationForm extends React.PureComponent {
         this.requestAPI(registrationForm)
             .then((response) => {
                 if (response.status === 202) {
-                    console.log("here")
                     NotificationManager.info('Processing your data...', '', 4000)
                 }
             })
