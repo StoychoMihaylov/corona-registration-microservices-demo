@@ -1,7 +1,5 @@
 ﻿namespace MessageExchangeContract
 {
-    using System;
-
     enum MessageType
     {
         Info = 1,

@@ -19,7 +19,7 @@ namespace NotificationAPI.App
                s.EnableDetailedErrors = true
             );
 
-            services.AddSingleton<INotificationHub, NotificationHub>(); //DI
+            services.AddSingleton<INotificationHubContext, NotificationHubContext>(); //DI
 
             services.AddMassTransitServiceBus(); // MassTransite Configuration
         }
